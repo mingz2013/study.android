@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Alerts.java&apos; to &apos;Android_025_Dialog/src/com.example.android_025_dialog&apos;&#x0A;- Original project: &apos;Android_024_AlertDialog&apos;&#x0A;- Destination element: &apos;Android_025_Dialog/src/com.example.android_025_dialog&apos;&#x0A;- Original element: &apos;com.example.android_024_alertdialog.Alerts.java&apos;" description="Copy compilation unit" destination="=Android_025_Dialog/src&lt;com.example.android_025_dialog" element1="/src&lt;com.example.android_024_alertdialog{Alerts.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1384347709451" units="1" version="1.0"/>
+</session>

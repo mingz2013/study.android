@@ -1,0 +1,9 @@
+package com.example.android_02_client;
+
+import com.mingzz.chat.User;
+
+import android.app.Application;
+
+public class AppGlobal extends Application{
+	public static User user;
+}

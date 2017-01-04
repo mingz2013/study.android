@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/locationButtonId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="测试当前设备的provider" />
+
+    <Button
+        android:id="@+id/bestProviderButtonId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="最好的Provider" />
+
+</LinearLayout>

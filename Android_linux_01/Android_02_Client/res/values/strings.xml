@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android_02_Client</string>
+    <string name="login">登录</string>
+    <string name="username">用户名：</string>
+    <string name="username_hint">Enter your username</string>
+    <string name="password">密  码：</string>
+    <string name="password2">再次输入密码：</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="register">注册</string>
+    <string name="post">提交</string>
+    <string name="cancel">关闭</string>
+    <string name="msg_hint">Enter your Message</string>
+    <string name="send">发送</string>
+    
+    <string name="action_settings">设置</string>
+    <string name="action_about">关于</string>
+    <string name="action_quit">退出</string>
+    <string name="action_opinions">反馈</string>
+
+</resources>

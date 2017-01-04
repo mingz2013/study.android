@@ -1,0 +1,6 @@
+package com.example.android_02_client;
+
+public class RegisterMessage {
+	public String registerName;
+	public String registerPassword;
+}

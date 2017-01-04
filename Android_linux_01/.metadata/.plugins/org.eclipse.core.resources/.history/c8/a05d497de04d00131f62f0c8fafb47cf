@@ -1,0 +1,15 @@
+package com.mingzz.chat.message;
+
+import java.io.Serializable;
+
+public class TransmissionData implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5240152692961888097L;
+	
+	public int transmissionFlag ; 
+	public UserMessage userMessage ;
+}

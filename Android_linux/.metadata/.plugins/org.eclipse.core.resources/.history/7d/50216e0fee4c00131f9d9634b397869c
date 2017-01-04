@@ -1,0 +1,30 @@
+package com.example.android_027_notification;
+
+import android.app.Activity;
+import android.app.NotificationManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class ActivityMainNotification extends Activity{
+	private static int NOTIFICATIONS_ID = R.layout.activity_notification;
+	private NotificationManager mNotificationManager;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_notification);
+		Button button;
+		mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+		button = (Button)findViewById(R.id.sun_1);
+		button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
+}

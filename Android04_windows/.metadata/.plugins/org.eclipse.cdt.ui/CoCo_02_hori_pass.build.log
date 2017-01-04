@@ -1,0 +1,11 @@
+
+**** Build of configuration Default for project CoCo_02_hori_pass ****
+
+ndk-build.cmd 
+"Compile++ thumb : cocos2dcpp_shared <= GameLayer.cpp
+jni/../../Classes/GameLayer.cpp: In member function 'void GameLayer::updateRobots(float)':
+jni/../../Classes/GameLayer.cpp:235:50: error: 'UINT64_C' was not declared in this scope
+jni/../../Classes/GameLayer.cpp:263:50: error: 'UINT64_C' was not declared in this scope
+make: *** [obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameLayer.o] Error 1
+
+**** Build Finished ****

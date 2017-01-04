@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_show1"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="show1"/>
+     <item
+        android:id="@+id/action_show2"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="show2"/>
+      <item
+        android:id="@+id/action_show3"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="show3"/>
+       <item
+        android:id="@+id/action_show4"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="show4"/>
+
+</menu>

@@ -1,0 +1,8 @@
+package com.example.android_024_alertdialog;
+
+public class Alerts {
+	public static void showAlert(String message, Context ctx)
+	{
+		
+	}
+}

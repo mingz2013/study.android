@@ -1,0 +1,88 @@
+package com.mingzz.chat.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+import com.mingzz.chat.message.ChatMessage;
+import com.mingzz.chat.message.UserMessage;
+
+
+public class ChatTest {
+	public final static int DEFAULT_PORT = 6666;
+	public final static String END_CMD = "ABC";
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int port = DEFAULT_PORT;
+		
+		if(args.length != 2){
+			System.out.println("Usage:java ChatTest <hostname> [<port>]");
+			System.exit(0);
+		}
+		try{
+			port = Integer.parseInt(args[1]);
+		}catch(NumberFormatException e){
+			System.err.println("Invalid port specification; using default port of " + DEFAULT_PORT);
+			port = DEFAULT_PORT;
+		}
+		System.out.println("....ip: " + args[0]);
+		System.out.println("....port: " + port);
+		// 创建用户登录聊天
+		System.out.println("........................1");
+    	Socket socket = null;
+    	System.out.println("........................2");
+		try {
+			System.out.println("........................3");
+			socket = new Socket(args[0], port);
+			System.out.println("........................4");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("........................5");
+		} 
+		System.out.println("........................6");
+		
+    	ChatClient chatClient = new ChatClient(socket) {
+			
+			@Override
+			protected void doUserMessage(UserMessage userMessage) {
+				// TODO Auto-generated method stub
+				String message = ((ChatMessage)userMessage.MsgObject).message;
+				System.out.println("\nServer: " +message +"\n");
+				
+			}
+		};
+		System.out.println("........................7");
+		User user = new User(chatClient);
+		System.out.println("........................8");
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		String message;
+		while(true){
+			System.out.println("请输入消息，或输入" + END_CMD + "推出");
+			message = "";
+			try {
+				message = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(END_CMD.equals(message)){
+				user.Logout();
+				System.exit(0);
+			}
+			System.out.println("send message: " + message);
+			// 发送聊天信息
+			user.sendMessage(111, 222, message);
+			/*/ 登录
+			user.setUserName("abcde_username");
+			user.setPassword("password_43254fds");
+			user.Login();
+			*/
+		}
+	}
+
+}

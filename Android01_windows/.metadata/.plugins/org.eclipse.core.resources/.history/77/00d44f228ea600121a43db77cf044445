@@ -1,0 +1,34 @@
+package com.MingZz.spinner;
+
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+public class SpinnerActivity extends Activity {
+	private Spinner spinner = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_spinner);
+		
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(// 创建一个ArrayAdapter对象
+				this, 
+				R.array.planets_array,	// 上面定义的数组，数据来源
+				android.R.layout.simple_spinner_item	//布局文件，android自带的，默认的下拉菜单样式
+				);
+		adapter.setDropDownViewResource(
+				android.R.layout.simple_spinner_dropdown_item	// android自带的布局文件，定义每一个选项的样式
+				);
+		spinner = (Spinner)findViewById(R.id.spinnerId);
+		spinner.setAdapter(adapter);
+		spinner.setPrompt("测试");	// 设置标题
+		
+		
+		
+	}
+
+	
+
+}

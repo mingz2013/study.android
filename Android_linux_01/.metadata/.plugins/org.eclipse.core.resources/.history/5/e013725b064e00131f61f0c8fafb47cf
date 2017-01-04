@@ -1,0 +1,41 @@
+package com.example.android_02_client;
+
+public class MessageFactory {
+	public static final int TRANS_OF_END = 0;
+	public static final int TRANS_OF_USERMESSAGE = 1;
+	
+	public static final int USERMSGTYPE_OF_REGISTER = 0;
+	public static final int USERMSGTYPE_OF_LOGIN = 1;
+	public static final int USERMSGTYPE_OF_CHAT = 2;
+	public static TransmissionData createTransmissionData(int transmissionFlag, UserMessage userMessage){
+		TransmissionData transmissionData = null;
+		transmissionData.transmissionFlag = transmissionFlag;
+		transmissionData.userMessage = userMessage;
+		return transmissionData;
+	}
+	public static UserMessage createUserMessage(int MessageType, Object MsgObject){
+		UserMessage userMessage = null;
+		userMessage.MessageType = MessageType;
+		userMessage.MsgObject = MsgObject;
+		return userMessage;
+	}
+	public static LoginMessage createLoginMessage(String username, String password){
+		LoginMessage loginMessage = null;
+		loginMessage.username = username;
+		loginMessage.password = password;
+		return loginMessage;
+	}
+	public static RegisterMessage createRegisterMessage(String registerName, String registerPassword){
+		RegisterMessage registerMessage = null;
+		registerMessage.registerName = registerName;
+		registerMessage.registerPassword = registerPassword;
+		return registerMessage;
+	}
+	public static ChatMessage createChatMessage(long fromID, long toID, String message){
+		ChatMessage chatMessage = null;
+		chatMessage.fromID = fromID;
+		chatMessage.toID = toID;
+		chatMessage.message = message;
+		return chatMessage;
+	}
+}

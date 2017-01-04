@@ -1,0 +1,67 @@
+package com.example.android_025_dialog;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+
+public class Alerts {
+	public static String showPrompt(String message, Context ctx)
+	{
+		LayoutInflater li = LayoutInflater.from(ctx);
+		View view = li.inflate(R.layout.prompt_layout, null);
+		
+		
+		// Create a builder
+		AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+		builder.setTitle("Prompt");
+		builder.setView(view);
+		
+		// add button and listener
+		PromptListener pl = new PromptListener(view);
+		builder.setPositiveButton("OK", pl);
+		builder.setNegativeButton("Cancel", pl);
+		
+		// create the dialog
+		AlertDialog ad = builder.create();
+		
+		// show
+		ad.show();
+		
+		return pl.getPromptReply();
+	}
+	
+}
+class PromptListener implements android.content.DialogInterface.OnClickListener{
+	
+	private String promptReply = null;
+	
+	View promptDialogView = null;
+	
+	public PromptListener(View inDialogView){
+		promptDialogView = inDialogView;
+	}
+	
+	
+	@Override
+	public void onClick(DialogInterface arg0, int arg1) {
+		// TODO Auto-generated method stub
+		if(arg1 == DialogInterface.BUTTON1){
+			promptReply = getPromptText();
+		}else{
+			promptReply = null;
+		}
+		
+	}
+	
+	private String getPromptText(){
+		EditText et = (EditText)promptDialogView.findViewById(R.id.promptmessage);
+		return et.getText().toString();
+	}
+	public String getPromptReply(){
+		return promptReply;
+	}
+	
+}

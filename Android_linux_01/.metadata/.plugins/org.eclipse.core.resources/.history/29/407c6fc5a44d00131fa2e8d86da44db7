@@ -1,0 +1,67 @@
+package com.example.android_02_client;
+
+import java.net.Socket;
+
+public class ChatClient extends AbstractConnection implements Runnable{
+	// 客户端执行线程
+	private Thread exec;
+	// 用指定的socket创建一个新的chatsocket
+	public ChatClient(Socket s)
+	{
+		super(s);
+		exec = new Thread(this);
+	}
+	public void start()
+	{
+		exec.start();
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		// 打开联接
+		if(!open())
+		{
+			System.out.println("Could not open connection.");
+			return;
+		}
+		
+		
+		// 创建一个BufferReader来接受用户输入 从控制台输入
+		//BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		// 从用户那里读入输入的字符串
+		//String input = "";
+		while(true)
+		{
+			/*
+			System.out.println("Enter a string or '" + sentinel + "' to quit");
+			
+			try{
+				input = reader.readLine();
+			}catch(IOException e){
+				System.err.println("General I/O error; client terminating.");
+				close(true);
+				return;
+			}
+			// 如果用户输入标记数，则发送一个EOT信号
+			if(sentinel.equals(input))
+			{
+				send(END_OF_TRANSMISSION, "");
+				close(false);
+				return;
+			}
+			
+			// 否则请求反转字符串服务
+			send("Reverse", input);
+			*/
+			recv();
+			
+			// 打印服务的响应
+			System.out.println(parseUserMessage().toString());
+			
+		}
+		
+	}
+	
+
+}

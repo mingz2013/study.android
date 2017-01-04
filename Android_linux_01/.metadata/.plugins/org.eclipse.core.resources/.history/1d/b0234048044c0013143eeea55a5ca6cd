@@ -1,0 +1,111 @@
+package com.mingzz.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.StringTokenizer;
+
+public class AbstractConnection {
+	//用来分割消息头和消息的字符串
+	public final String MSG_DELEM = "||";
+	// 会话结束命令
+	public static final String END_OF_TRANSMISSION = "EOT"; 
+	// 终端通信socket
+	protected Socket socket;
+	// 接受道德信息，包括 头 分割字符串 信息
+	protected String message;
+	// 输入输出留
+	protected BufferedReader in;
+	protected PrintStream out;
+	
+	protected AbstractConnection()
+	{
+		socket = null;
+	}
+	public AbstractConnection(Socket ClientSocket)
+	{
+		this.socket = ClientSocket;
+	}
+	// 打开联接
+	protected boolean open()
+	{
+		try{
+		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		out = new PrintStream(socket.getOutputStream());
+		}catch(IOException e){
+			e.printStackTrace();
+			close(true);	// io错误，关闭socket
+			return false;
+		}
+		return true;
+	}
+	// 尝试关闭socket
+	protected void close(
+			boolean ioError	// 如果是io错误则为真
+			)
+	{
+		// 如果有错误发生，发送一个传送终止信号，
+		// 这种操作应该关闭另一端的服务
+		if(!ioError){
+			send(END_OF_TRANSMISSION, "");
+		}
+		
+		try {
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	protected void send(String header, String msg)
+	{
+		// 只有在socket处于联接时才发送消息
+		if(socket.isConnected())
+		{
+			out.println(header + MSG_DELEM + msg);
+		}else{
+			System.err.println("SOcket not connected");
+		}
+	}
+	// 从消息中解析消息头
+	protected String parseHeader()
+	{
+		if("".equals(message)) return "";
+		StringTokenizer st = new StringTokenizer(message, MSG_DELEM);
+		if(st.hasMoreTokens()){
+			return st.nextToken();
+		}
+		return "";
+	}
+	// 解析消息部分
+	protected String parseMessage()
+	{
+		if("".equals(message)) return "";
+		StringTokenizer st = new StringTokenizer(message, MSG_DELEM);
+		// 先处理一个，然后返回第二个
+		if(st.hasMoreTokens()){
+			st.nextToken();
+			if(st.hasMoreTokens()){
+				return st.nextToken();
+			}
+		}
+		return "";
+	}
+	// 尝试从输入留中接受信息
+	protected void recv()
+	{
+		message = "";
+		try {
+			message = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			close(true);
+		}
+	}
+}
+

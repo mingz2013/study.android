@@ -1,0 +1,8 @@
+package com.example.android_02_client;
+
+import android.app.Application;
+
+public class AppGlobal extends Application{
+	public static ChatClient chatClient;
+	public static User user;
+}

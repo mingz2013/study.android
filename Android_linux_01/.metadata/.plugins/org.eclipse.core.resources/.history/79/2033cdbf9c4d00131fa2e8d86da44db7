@@ -1,0 +1,6 @@
+package com.example.android_02_client;
+
+public class Flags {
+	public static final int TRANS_OF_END = 0;
+	public static final int TRANS_OF_USERMESSAGE = 1;
+}

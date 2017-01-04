@@ -1,0 +1,37 @@
+package com.example.android02_jni;
+
+import jni.Natives;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+	{
+		// 加载原生库
+		System.loadLibrary("ch02");
+	}
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        
+        try {
+        	//运行原生方法
+        	String[] argv = { "MyLib", "arg1", "arg2" };
+        	Natives.LibMain(argv);
+        	} catch (Exception e) {
+        	e.printStackTrace();
+        	}
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}

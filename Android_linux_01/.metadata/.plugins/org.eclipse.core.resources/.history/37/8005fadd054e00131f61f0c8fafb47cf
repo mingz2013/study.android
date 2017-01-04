@@ -1,0 +1,8 @@
+package com.example.android_02_client;
+
+public class ChatMessage {
+	public String fromID;
+	public String toID;
+	public String Message;
+
+}

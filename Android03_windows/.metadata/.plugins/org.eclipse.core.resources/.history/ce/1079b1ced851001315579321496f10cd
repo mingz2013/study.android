@@ -1,0 +1,48 @@
+package com.mingzz.downloader;
+
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Random;
+
+public class DownLoader {
+	String filename;
+	String path;
+	int threadsize = 3;		// 线程数
+	public void download() throws Exception{
+		URL url = new URL(path);
+		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+		connection.setConnectTimeout(5 * 1000);
+		connection.setRequestMethod("GET");
+		
+		int filelength = connection.getContentLength();	// 获取下载文件长度
+		System.out.println("file length : " + filelength);
+		
+		RandomAccessFile file = new RandomAccessFile(filename, "rw");
+		file.setLength(filelength);		// 设置本地文件长度
+		file.close();
+		connection.disconnect();
+		
+		
+		int threadlength = filelength % threadsize == 0 ? filelength / threadsize : filelength / threadsize + 1;// 每条线城下载的长度
+		
+		for(int i = 0; i < threadsize; i++ ){
+			int startposition = i * threadlength; // 计算每条线城应该从什么位置开始下载
+			RandomAccessFile threadfile = new RandomAccessFile(filename, "rw");
+			threadfile.seek(startposition);		// 从文件的什么位置开始写入数据
+			// 启动所有线程 分别从 不同位置 下载文件
+			new DownLoadThread(i, path, startposition, threadfile, threadlength).start();
+		}
+		
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

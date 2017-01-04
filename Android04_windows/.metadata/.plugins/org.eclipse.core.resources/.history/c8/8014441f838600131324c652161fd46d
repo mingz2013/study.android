@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+/* JNI 包含文件*/
+#include <jni.h>
+#include "include/jni_Natives.h"
+#define CB_CLASS "jni/Natives"
+/**
+* OnMessage 回调方法
+*/
+#define CB_CLASS_MSG_CB "OnMessage"
+#define CB_CLASS_MSG_SIG "(Ljava/lang/String;I)V"
+// 原型
+
+// 原生库主要子例程
+int lib_main(int argc, char **argv) ;
+// 用于获得Java 数组的长度
+const int getArrayLen(JNIEnv * env, jobjectArray jarray);
+// 向Java 层打印字符串消息
+void jni_printf(char *format, ...);
+// Java 虚拟机的全局环境引用,用于回调Java 方法
+static JavaVM *g_VM;
+// 原生Java 类jni.Native.java 的全局引用
+static jclass jNativesCls;
+
+/*
+* 类: jni_Natives
+* 方法: LibMain
+* 签名: ([Ljava/lang/String;]V
+*/
+JNIEXPORT jint JNICALL Java_jni_Natives_LibMain
+(JNIEnv * env, jclass class, jobjectArray jargv)
+{
+// 从调用者jclass 获得全局引用
+(*env)->GetJavaVM(env, &g_VM);
+// 从Java 数组提取 char ** args
+jsize clen = getArrayLen(env, jargv);
+char * args[(int)clen];

@@ -1,0 +1,5 @@
+package com.example.android_029_chatview;
+
+public class ChatMessage {
+
+}

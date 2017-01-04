@@ -1,0 +1,156 @@
+!SESSION 2013-05-13 20:37:56.553 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product -data D:\studymyself\Android -product com.android.ide.eclipse.adt.package.product
+
+This is a continuation of log file D:\studymyself\Android\.metadata\.bak_1.log
+Created Time: 2013-05-13 20:38:13.116
+
+!ENTRY org.eclipse.equinox.registry 4 1 2013-05-13 20:38:13.116
+!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.project.FolderDecorator.
+!STACK 0
+java.lang.IllegalStateException: Expected to find an object at table index: 1855
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:268)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:264)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:857)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.registry 4 1 2013-05-13 20:38:13.147
+!MESSAGE Plug-in org.springframework.ide.eclipse.webflow.ui was unable to load class org.springframework.ide.eclipse.webflow.ui.model.WebflowModelLabelDecorator.
+!STACK 0
+java.lang.IllegalStateException: Expected to find an object at table index: 1855
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getResolvedRequires(BundleDescriptionImpl.java:235)
+	at org.eclipse.osgi.internal.loader.BundleLoader.<init>(BundleLoader.java:147)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader0(BundleLoaderProxy.java:76)
+	at org.eclipse.osgi.internal.loader.BundleLoaderProxy.getBundleLoader(BundleLoaderProxy.java:60)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.getBundleLoader(BundleHost.java:653)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.checkLoader(BundleHost.java:198)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:225)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:268)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:264)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:124)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:857)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:81)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:365)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:347)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:370)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:330)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 4 0 2013-05-13 20:41:19.298
+!MESSAGE Shutdown error
+!STACK 1
+java.lang.IllegalStateException: Expected to find an object at table index: 1855
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getExportPackages(BundleDescriptionImpl.java:160)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.addReference(StateHelperImpl.java:368)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.buildReferences(StateHelperImpl.java:358)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.buildReferences(StateHelperImpl.java:352)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.sortBundles(StateHelperImpl.java:304)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependencies(StartLevelManager.java:524)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependency(StartLevelManager.java:505)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.getInstalledBundles(StartLevelManager.java:481)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:251)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:693)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.osgi 4 0 2013-05-13 20:41:19.298
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.lang.IllegalStateException: Expected to find an object at table index: 1855
+	at org.eclipse.osgi.internal.resolver.StateReader.getFromObjectTable(StateReader.java:83)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:413)
+	at org.eclipse.osgi.internal.resolver.StateReader.readExportPackageDesc(StateReader.java:422)
+	at org.eclipse.osgi.internal.resolver.StateReader.readImportPackageSpec(StateReader.java:564)
+	at org.eclipse.osgi.internal.resolver.StateReader.readBundleDescriptionLazyData(StateReader.java:283)
+	at org.eclipse.osgi.internal.resolver.StateReader.fullyLoad(StateReader.java:823)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.loadLazyData(BundleDescriptionImpl.java:662)
+	at org.eclipse.osgi.internal.resolver.BundleDescriptionImpl.getExportPackages(BundleDescriptionImpl.java:160)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.addReference(StateHelperImpl.java:368)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.buildReferences(StateHelperImpl.java:358)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.buildReferences(StateHelperImpl.java:352)
+	at org.eclipse.osgi.internal.resolver.StateHelperImpl.sortBundles(StateHelperImpl.java:304)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependencies(StartLevelManager.java:524)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependency(StartLevelManager.java:505)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.getInstalledBundles(StartLevelManager.java:481)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:251)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:693)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)

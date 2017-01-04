@@ -1,0 +1,7 @@
+
+**** Build of configuration Default for project CoCo_01_HelloWorld ****
+
+ndk-build.cmd 
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+
+**** Build Finished ****

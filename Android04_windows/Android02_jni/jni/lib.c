@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <stdlib.h>
+/* JNI 包含文件*/
+#include <jni.h>
+#include "include/jni_Natives.h"
+#define CB_CLASS "jni/Natives"
+/**
+ * OnMessage 回调方法
+ */
+#define CB_CLASS_MSG_CB "OnMessage"
+#define CB_CLASS_MSG_SIG "(Ljava/lang/String;I)V"
+// 原型
+
+// 原生库主要子例程
+int lib_main(int argc, char **argv);
+// 用于获得Java 数组的长度
+const int getArrayLen(JNIEnv * env, jobjectArray jarray);
+// 向Java 层打印字符串消息
+void jni_printf(char *format, ...);
+// Java 虚拟机的全局环境引用,用于回调Java 方法
+static JavaVM *g_VM;
+// 原生Java 类jni.Native.java 的全局引用
+static jclass jNativesCls;
+
+/*
+ * 类: jni_Natives
+ * 方法: LibMain
+ * 签名: ([Ljava/lang/String;]V
+ */
+JNIEXPORT jint JNICALL Java_jni_Natives_LibMain(JNIEnv * env, jclass class, jobjectArray jargv) {
+	// 从调用者jclass 获得全局引用
+	(*env)->GetJavaVM(env, &g_VM);
+	// 从Java 数组提取 char ** args
+	jsize clen = getArrayLen(env, jargv);
+	char * args[(int) clen];
+
+	int i;
+	jstring jrow;
+	for (i = 0; i < clen; i++) {
+		// 从Java String[i]获得C 字符串
+		jrow = (jstring)(*env)->GetObjectArrayElement(env, jargv, i);
+		const char *row = (*env)->GetStringUTFChars(env, jrow, 0);
+		args[i] = malloc(strlen(row) + 1);
+		strcpy(args[i], row);
+		// 打印args 参数对应的字符串
+		jni_printf("Main argv[%d]=%s", i, args[i]);
+		// 释放Java 字符串jrow
+		(*env)->ReleaseStringUTFChars(env, jrow, row);
+	}
+	/*
+	 * 加载 jni.Natives 类
+	 */
+	jNativesCls = (*env)->FindClass(env, CB_CLASS);
+	if (jNativesCls == 0) {
+		jni_printf("Unable to find class: %s", CB_CLASS);
+		return -1;
+	}
+	// 调用本地库主要子例程
+	// 以从Java 层传递来的字符串作为程序参数
+	lib_main(clen, args);
+	return 0;
+}
+
+/**
+ * 向Java 层发回一个字符串
+ */
+jmethodID mSendStr;
+static void jni_send_str(const char * text, int level) {
+	JNIEnv * env;
+	if (!g_VM) {
+		printf("I_JNI-NOVM: %s\n", text);
+		return;
+	}
+	(*g_VM)->AttachCurrentThread(g_VM, (void **) &env, NULL);
+	// 如果为空，就加载jni.Natives 类
+	if (!jNativesCls) {
+		jNativesCls = (*env)->FindClass(env, CB_CLASS);
+		if (jNativesCls == 0) {
+			printf("Unable to find class: %s", CB_CLASS);
+			return;
+		}
+	}
+	// 调用jni.Natives.OnMessage(String, int)方法
+	if (!mSendStr) {
+		// 获取静态方法jni.Natives.OnMessage 的引用
+		mSendStr = (*env)->GetStaticMethodID(env, jNativesCls, CB_CLASS_MSG_CB,
+				CB_CLASS_MSG_SIG);
+	}
+	if (mSendStr) {
+		// 调用Java 的静态方法
+		(*env)->CallStaticVoidMethod(env, jNativesCls, mSendStr,
+				(*env)->NewStringUTF(env, text), (jint) level);
+	} else {
+		printf("Unable to find method: %s, signature: %s\n", CB_CLASS_MSG_CB,
+				CB_CLASS_MSG_SIG);
+	}
+}
+/**
+ * 打印到Java 层
+ * 将可变参数缓存到临时缓冲区
+ * 并调用jni_sebd_str
+ */
+void jni_printf(char *format, ...) {
+	va_list argptr;
+	static char string[1024];
+	va_start(argptr, format);
+	vsprintf(string, format, argptr);
+	va_end(argptr);
+	jni_send_str(string, 0);
+}
+/**
+ * 获得Java 数组的长度
+ */
+const int getArrayLen(JNIEnv * env, jobjectArray jarray) {
+	return (*env)->GetArrayLength(env, jarray);
+}
+
+/**
+ * 原生库主要子例程
+ */
+int lib_main(int argc, char **argv) {
+	int i;
+	jni_printf("Entering LIB MAIN");
+	for (i = 0; i < argc; i++) {
+		jni_printf("Lib Main argv[%d]=%s", i, argv[i]);
+	}
+	return 0;
+}

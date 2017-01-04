@@ -1,0 +1,9 @@
+INDEX VERSION 1.126+D:\studymyself\Android04_windows\.metadata\.plugins\org.eclipse.jdt.core
+3439765324.index
+372680263.index
+3132473960.index
+2595150815.index
+1439403837.index
+2842319572.index
+725134248.index
+4234102711.index

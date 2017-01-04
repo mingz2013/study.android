@@ -1,0 +1,23 @@
+package com.example.android_02_client;
+
+public class MessageFactory {
+	public static final int TRANS_OF_END = 0;
+	public static final int TRANS_OF_USERMESSAGE = 1;
+	
+	public static final int USERMSGTYPE_OF_REGISTER = 0;
+	public static final int USERMSGTYPE_OF_LOGIN = 1;
+	public static final int USERMSGTYPE_OF_MESSAGE = 2;
+	public static TransmissionData createTransmissionData(int transmissionFlag, UserMessage userMessage){
+		TransmissionData transmissionData = null;
+		transmissionData.transmissionFlag = transmissionFlag;
+		transmissionData.userMessage = userMessage;
+		return transmissionData;
+	}
+	public static UserMessage createUserMessage(int MessageType, Object MsgObject){
+		UserMessage userMessage = null;
+		userMessage.MessageType = MessageType;
+		userMessage.MsgObject = MsgObject;
+		return userMessage;
+	}
+
+}

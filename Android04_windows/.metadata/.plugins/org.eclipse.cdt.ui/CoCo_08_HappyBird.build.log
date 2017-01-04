@@ -1,0 +1,7 @@
+
+**** Build of configuration Default for project CoCo_08_HappyBird ****
+
+ndk-build.cmd all 
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+
+**** Build Finished ****

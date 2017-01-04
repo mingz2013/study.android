@@ -1,0 +1,8 @@
+package com.mingzz.chat;
+
+public class ChatMessage {
+	public long fromID;
+	public long toID;
+	public String message;
+
+}

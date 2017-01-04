@@ -1,0 +1,93 @@
+package com.example.android_02_timetracker;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.app.Activity;
+import android.text.format.DateUtils;
+import android.view.Menu;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	TextView counter;
+	ListView list;
+	TimeListAdapter mTimeListAdapter;
+	long mTime, mStart;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		counter = (TextView)findViewById(R.id.counter);
+		list = (ListView)findViewById(R.id.time_list);
+		
+		counter.setText(DateUtils.formatElapsedTime(0));
+		if(mTimeListAdapter == null){
+			mTimeListAdapter = new TimeListAdapter(this, 0);
+		}
+		list.setAdapter(mTimeListAdapter);
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override//保存数据 活动被销毁并可能会被重新建立是被调用
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		// 保存当前列表的滚动位置
+		int pos = list.getFirstVisiblePosition();
+		outState.putInt("first_position", pos);
+		super.onSaveInstanceState(outState);
+	}
+	
+	private Handler mHandler = new Handler(){
+
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			long current = System.currentTimeMillis();
+			mTime += current - mStart;
+			mStart = current;
+			counter.setText(DateUtils.formatElapsedTime(mTime/1000));
+			mHandler.sendEmptyMessageDelayed(0, 250);
+		}
+		
+	};
+	
+	private void startTimer(){
+		// 记录当前的系统时间并发送一条消息给Handler，开启一个定时器，
+		// 为了避免开启定时器两次，在发送下一条消息时移除任何存在的消息
+		mStart = System.currentTimeMillis();
+		mHandler.removeMessages(0);
+		mHandler.sendEmptyMessage(0);
+	}
+	
+	private void stopTimer(){
+		// 从Handler消息队列中移除所有消息
+		mHandler.removeMessages(0);
+	}
+	
+	private void resetTimer(){
+		// 先调用stopTimer，然后往适配器中添加当前时间
+		stopTimer();
+		if(mTimeListAdapter != null){
+			mTimeListAdapter.add(mTime/1000);
+		}
+		mTime = 0;
+		
+	}
+	
+	private boolean isTimerRunning(){
+		// 创建一个检测消息队列中消息的方法
+		return mHandler.hasMessages(0);
+	}
+	
+
+}

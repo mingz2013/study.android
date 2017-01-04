@@ -1,0 +1,30 @@
+package com.example.android_028_progressdialog;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.view.Menu;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+	private Button mButton01, mButton02;
+	int m_count = 0;
+	// 声明进度条对话框
+	ProgressDialog m_pDialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mButton01 = (Button)findViewById(R.id.)
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}

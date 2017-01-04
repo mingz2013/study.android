@@ -1,0 +1,65 @@
+package com.example.progressbarhandler;
+
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.SimpleAdapter;
+import android.app.Activity;
+
+
+public class MainActivity extends Activity {
+
+	private ProgressBar bar = null;
+	private Button startButton = null;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		bar = (ProgressBar)findViewById(R.id.bar);
+		startButton = (Button)findViewById(R.id.startButton);
+		startButton.setOnClickListener(new StartButtonListener());
+		
+	}
+
+	class StartButtonListener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			bar.setVisibility(View.VISIBLE);
+			updateBarHandler.post(updateThread);
+		}
+		
+	}
+	Handler updateBarHandler = new Handler(){
+		
+	};
+	Runnable updateThread = new Runnable() {
+		int i = 0;
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			System.out.println("Begin THread");
+			i = i + 10;
+			Message msg = updateBarHandler.obtainMessage();
+			msg.arg1 = 1;
+			try{
+				Thread.sleep(1000);
+			}catch (InterruptedException e){
+				e.printStackTrace();
+			}
+			updateBarHandler.sendMessage(msg);
+			if(i == 100)
+			{
+				updateBarHandler.removeCallbacks(updateThread);
+			}
+		}
+	};
+
+}

@@ -1,0 +1,30 @@
+package com.example.android_02_client;
+
+public class TransmissionData {
+	public static final int TRANS_OF_END = 0;
+	public static final int TRANS_OF_USERMESSAGE = 1;
+	
+	private int transmissionFlag ; 
+	private UserMessage userMessage ;
+	
+	public TransmissionData(){
+		transmissionFlag = 0;
+		userMessage = null;
+	}
+	public TransmissionData(int transmissionFlag, UserMessage userMessage){
+		this.transmissionFlag = transmissionFlag;
+		this.userMessage = userMessage;
+	}
+	public int getTransmissionFlag(){
+		return transmissionFlag;
+	}
+	public void setTransmissionFlag(int transmissionFlag){
+		this.transmissionFlag = transmissionFlag;
+	}
+	public UserMessage getUserMessage(){
+		return userMessage;
+	}
+	public void setUserMessage(UserMessage userMessage){
+		this.userMessage = userMessage;
+	}
+}

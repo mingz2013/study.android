@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button 
+        android:id="@+id/register"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="绑定监听器"/>
+    <Button 
+        android:id="@+id/unregister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="解除绑定"/>
+</LinearLayout>

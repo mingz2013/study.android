@@ -1,0 +1,76 @@
+package com.example.android_026_dialog;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+	public static final int DIALOG1	= 1;
+	public static final int DIALOG2	= 2;
+	public static final int DIALOG3	= 3;
+	public static final int DIALOG4	= 4;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+		case R.id.action_show1:
+			showDialog(DIALOG1);
+			break;
+		case R.id.action_show2:
+			showDialog(DIALOG2);
+			break;
+		case R.id.action_show3:
+			showDialog(DIALOG3);
+			break;
+		case R.id.action_show4:
+			showDialog(DIALOG4);
+			break;
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+
+	@Override
+	@Deprecated
+	protected Dialog onCreateDialog(int id) {
+		// TODO Auto-generated method stub
+		switch (id) {
+		case DIALOG1:
+			
+			break;
+		case DIALOG2:
+			
+			break;
+		case DIALOG3:
+	
+			break;
+		case DIALOG4:
+	
+			break;
+
+		default:
+			break;
+		}
+		return null;
+	}
+    
+}

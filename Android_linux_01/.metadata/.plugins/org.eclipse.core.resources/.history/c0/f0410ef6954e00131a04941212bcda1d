@@ -1,0 +1,48 @@
+package com.mingzz.chat;
+
+import com.mingzz.chat.message.ChatMessage;
+import com.mingzz.chat.message.LoginMessage;
+import com.mingzz.chat.message.RegisterMessage;
+import com.mingzz.chat.message.TransmissionData;
+import com.mingzz.chat.message.UserMessage;
+
+
+public class MessageFactory {
+	public static final int TRANS_OF_END = 0;
+	public static final int TRANS_OF_USERMESSAGE = 1;
+	
+	public static final int USERMSGTYPE_OF_REGISTER = 0;
+	public static final int USERMSGTYPE_OF_LOGIN = 1;
+	public static final int USERMSGTYPE_OF_CHAT = 2;
+	public static TransmissionData createTransmissionData(int transmissionFlag, UserMessage userMessage){
+		TransmissionData transmissionData = new TransmissionData();
+		transmissionData.transmissionFlag = transmissionFlag;
+		transmissionData.userMessage = userMessage;
+		return transmissionData;
+	}
+	public static UserMessage createUserMessage(int MessageType, Object MsgObject){
+		UserMessage userMessage = new UserMessage();
+		userMessage.MessageType = MessageType;
+		userMessage.MsgObject = MsgObject;
+		return userMessage;
+	}
+	public static LoginMessage createLoginMessage(String username, String password){
+		LoginMessage loginMessage = new LoginMessage();
+		loginMessage.username = username;
+		loginMessage.password = password;
+		return loginMessage;
+	}
+	public static RegisterMessage createRegisterMessage(String registerName, String registerPassword){
+		RegisterMessage registerMessage = new RegisterMessage();
+		registerMessage.registerName = registerName;
+		registerMessage.registerPassword = registerPassword;
+		return registerMessage;
+	}
+	public static ChatMessage createChatMessage(long fromID, long toID, String message){
+		ChatMessage chatMessage = new ChatMessage();
+		chatMessage.fromID = fromID;
+		chatMessage.toID = toID;
+		chatMessage.message = message;
+		return chatMessage;
+	}
+}

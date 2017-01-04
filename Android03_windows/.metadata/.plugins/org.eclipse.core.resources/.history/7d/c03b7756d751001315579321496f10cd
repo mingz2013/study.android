@@ -1,0 +1,33 @@
+package com.mingzz.downloader;
+
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Random;
+
+public class DownLoader {
+	String filename;
+	String path;
+	public void download(){
+		URL url = new URL(path);
+		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+		connection.setConnectTimeout(5 * 1000);
+		connection.setRequestMethod("GET");
+		
+		int filelength = connection.getContentLength();	// 获取下载文件长度
+		System.out.println("file length : " + filelength);
+		
+		RandomAccessFile file = new RandomAccessFile(filename, "rw");
+		file.setLength(filelength);		// 设置本地文件长度
+		
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

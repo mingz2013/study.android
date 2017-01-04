@@ -1,0 +1,6 @@
+package com.example.android_02_client;
+
+public class TransmissionData {
+	public static final int END_OF_TRANSMISSION = 0;
+	
+}

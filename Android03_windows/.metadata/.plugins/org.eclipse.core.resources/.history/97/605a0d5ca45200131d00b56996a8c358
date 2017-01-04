@@ -1,0 +1,23 @@
+package com.example.android11_fragement;
+
+import android.annotation.SuppressLint;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class SimpleTextFragment extends Fragment{
+
+	@SuppressLint("NewApi")
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		TextView tv = new TextView(getActivity());
+		tv.setText("Hello Fragment!");
+		return tv;
+	}
+
+}

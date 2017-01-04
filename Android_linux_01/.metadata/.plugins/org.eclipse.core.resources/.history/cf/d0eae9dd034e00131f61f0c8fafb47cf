@@ -1,0 +1,17 @@
+package com.example.android_02_client;
+
+public class MessageFactory {
+	public static TransmissionData createTransmissionData(int transmissionFlag, UserMessage userMessage){
+		TransmissionData transmissionData = null;
+		transmissionData.transmissionFlag = transmissionFlag;
+		transmissionData.userMessage = userMessage;
+		return transmissionData;
+	}
+	public static UserMessage createUserMessage(int MessageType, Object MsgObject){
+		UserMessage userMessage = null;
+		userMessage.MessageType = MessageType;
+		userMessage.MsgObject = MsgObject;
+		return userMessage;
+	}
+
+}

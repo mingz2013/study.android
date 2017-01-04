@@ -1,0 +1,6 @@
+package com.mingzz.chat;
+
+public class RegisterMessage {
+	public String registerName;
+	public String registerPassword;
+}

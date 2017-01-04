@@ -1,0 +1,54 @@
+package com.mingzz.chat;
+
+import com.mingzz.chat.client.ChatClient;
+
+
+public class User{
+	private ChatClient client;
+	private String username;
+	private String password;
+	private long userID;
+	
+	public User(ChatClient chatClient) {
+		this.client = chatClient;
+	}
+	public User(ChatClient chatClient, String username, String password){
+		this.client = chatClient;
+		this.username = username;
+		this.password = password;
+	}
+	public void setUserName(String username){
+		this.username = username;
+	}
+	public void setPassword(String password){
+		this.password = password;
+	}
+	public String getUserName(){
+		return this.username;
+	}
+	public String getPassword(){
+		return this.password;
+	}
+	
+	public static boolean Register(ChatClient chatClient, String username, String password){
+		return true;
+	}
+	
+	public boolean Login(){
+		return true;
+	}
+	
+	public boolean Logout(){
+		return true;
+	}
+	
+	public boolean sendMessage(String mesage){
+		return true;
+	}
+	
+	
+	
+	
+	
+
+}

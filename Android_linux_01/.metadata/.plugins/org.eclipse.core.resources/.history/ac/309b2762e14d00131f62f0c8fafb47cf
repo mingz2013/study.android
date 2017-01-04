@@ -1,0 +1,6 @@
+package com.mingzz.chat.message;
+
+public class UserMessage {
+	public int MessageType;
+	public Object MsgObject;
+}

@@ -1,0 +1,58 @@
+package com.example.bluetooth02;
+
+import android.os.Bundle;
+import android.support.v4.app.ShareCompat.IntentBuilder;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+
+public class MainActivity extends Activity {
+	private Button discoverButton = null;
+	private Button scanButton = null;
+	private BluetoothAdapter bluetoothAdapter = null;
+	private BluetoothReveiver bluetoothReceiver = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		discoverButton = (Button)findViewById(R.id.discoverButtonId);
+		scanButton = (Button)findViewById(R.id.scanButtonId);
+		
+		discoverButton.setOnClickListener(new DiscoverButtonListener());
+		scanButton.setOnClickListener(new Scanbutton());
+		
+		IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		bluetoothReceiver = new BluetoothReceiver();
+		registerReceiver(bluetoothReceiver, intentFilter);
+		bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		
+		
+	}
+	private class DiscoverButtonListener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	private class Scanbutton implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+
+	
+
+}

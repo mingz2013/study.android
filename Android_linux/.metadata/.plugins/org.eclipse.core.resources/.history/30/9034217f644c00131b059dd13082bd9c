@@ -1,0 +1,41 @@
+package com.example.android_025_dialog;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+
+public class Alerts {
+	public static void showAlert(String message, Context ctx)
+	{
+		LayoutInflater li = LayoutInflater.from(ctx);
+		View view = li.inflate(R.layout.prompt_layout, null);
+		
+		
+		// Create a builder
+		AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+		builder.setTitle("Prompt");
+		builder.setView(view);
+		
+		// add button and listener
+		EmptyListener pl = new EmptyListener();
+		builder.setPositiveButton("OK", pl);
+		
+		// create the dialog
+		AlertDialog ad = builder.create();
+		
+		// show
+		ad.show();
+	}
+	
+}
+class PromptListener implements android.content.DialogInterface.OnClickListener{
+
+	@Override
+	public void onClick(DialogInterface arg0, int arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

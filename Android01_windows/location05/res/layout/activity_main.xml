@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/geocodingbuttonId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="geocodingbutton" />
+
+    <Button
+        android:id="@+id/reversebuttonId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="reversebutton" />
+
+</LinearLayout>

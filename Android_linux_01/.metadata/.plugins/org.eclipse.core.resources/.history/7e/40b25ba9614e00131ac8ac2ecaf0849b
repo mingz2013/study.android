@@ -1,0 +1,181 @@
+package com.mingzz.chat.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+import com.mingzz.chat.message.ChatMessage;
+import com.mingzz.chat.message.UserMessage;
+
+
+public class ChatTest {
+	public final static int DEFAULT_PORT = 6666;
+	
+	Socket socket = null;
+	ChatClient chatClient;
+	User user;
+	//String message;
+	BufferedReader reader;
+	public ChatTest(String ip, int port){
+		Start(ip, port);
+	}
+	private void Start(String ip, int port){
+		try {
+			socket = new Socket(ip, port);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    	chatClient = new ChatClient(socket) {
+			protected void doUserMessage(UserMessage userMessage) {
+				// TODO Auto-generated method stub
+				String message = ((ChatMessage)userMessage.MsgObject).message;
+				System.out.println("\nServer: " +message +"\n");	
+			}
+		};
+		System.out.println("........................7");
+		user = new User(chatClient);
+
+		Init();
+	}// start
+	private void Init(){
+		System.out.println("........................Init");
+		reader=new BufferedReader(new InputStreamReader(System.in));
+		String strCmd = "";
+		int iCmd = 0;
+		while(true){
+			System.out.println("请输入命令编号：.....");
+			System.out.println("..1.注册...........");
+			System.out.println("..2.登录...........");
+			System.out.println("..3.聊天...........");
+			System.out.println("..4.退出...........");
+			try {
+				strCmd = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("I/O wrong...");
+				continue;
+			}
+			try{
+				iCmd = Integer.parseInt(strCmd);
+			}catch(NumberFormatException e){
+				e.printStackTrace();
+				System.err.println("Invalid cmd specification,please write again...");
+				continue;
+			}
+			switch (iCmd) {
+			case 1:
+				Register();
+				break;
+			case 2:
+				Login();
+				break;
+			case 3:
+				Chat();
+				break;
+			case 4:
+				quit();
+				break;
+			default:
+				System.err.println("Invalid cmd specification,please write again...");
+				break;
+			}
+		}//while
+		
+	}// Init
+	private void Register(){
+		System.err.println("此功能暂不可用...");
+	}// register
+	private void Login(){
+		String strCmd ;
+		//int iCmd = 0;
+		System.out.println("........Login.....");
+		while(true){
+			strCmd = "";
+			System.out.println("..write your username:......");
+			try {
+				strCmd = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("I/O wrong...");
+				continue;
+			}
+			user.setUserName(strCmd);
+			strCmd = "";
+			System.out.println("..write your password:......");
+			try {
+				strCmd = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("I/O wrong...");
+				continue;
+			}
+			user.setUserName(strCmd);
+			strCmd = "";
+			System.out.println("..write again?(Y/N).........");
+			try {
+				strCmd = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("I/O wrong...");
+				continue;
+			}
+			if("Y".equals(strCmd) || "y".equals(strCmd)){
+				continue;
+			}else{
+				user.Login();
+			}
+		}//while
+	}//login
+	private void Chat(){
+		String strCmd ;
+		int iCmd = 0;
+		System.out.println("........Chat.....");
+		while(true){
+			strCmd = "";
+			System.out.println("..write Message:");
+			try {
+				strCmd = reader.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("I/O wrong...");
+				continue;
+			}
+			user.sendMessage(111, 222, strCmd);
+			System.out.println("..\nClient: " + strCmd);
+		}//while
+		// 发送聊天信息
+		
+	}//chat
+	private void quit(){
+		user.Logout();
+		System.out.println("program exit...");
+		System.exit(0);
+	}//quit
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int port = DEFAULT_PORT;
+		
+		if(args.length != 2){
+			System.out.println("Usage:java ChatTest <hostname> [<port>]");
+			System.exit(0);
+		}
+		try{
+			port = Integer.parseInt(args[1]);
+		}catch(NumberFormatException e){
+			System.err.println("Invalid port specification; using default port of " + DEFAULT_PORT);
+			port = DEFAULT_PORT;
+		}
+		System.out.println("....ip: " + args[0]);
+		System.out.println("....port: " + port);
+		
+		new ChatTest(args[0], port);
+	}//main
+}// ChatTest

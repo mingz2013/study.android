@@ -1,0 +1,75 @@
+
+**** Clean-only build of configuration Default for project CoCo_02_hori_pass ****
+
+ndk-build.cmd clean 
+Android NDK: jni/Android.mk: Cannot find module with tag 'cocos2dx' in import path    
+jni/Android.mk:29: *** Android NDK: Aborting.    .  Stop.
+Android NDK: Are you sure your NDK_MODULE_PATH variable is properly defined ?    
+Android NDK: The following directories were searched:    
+Android NDK:         
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_02_hori_pass ****
+
+ndk-build.cmd 
+Android NDK: jni/Android.mk: Cannot find module with tag 'cocos2dx' in import path    
+jni/Android.mk:29: *** Android NDK: Aborting.    .  Stop.
+Android NDK: Are you sure your NDK_MODULE_PATH variable is properly defined ?    
+Android NDK: The following directories were searched:    
+Android NDK:         
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_08_HappyBird ****
+
+ndk-build.cmd all 
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_02_hori_pass ****
+
+ndk-build.cmd 
+"Compile++ thumb : cocos2dcpp_shared <= main.cpp
+"Compile++ thumb : cocos2dcpp_shared <= AppDelegate.cpp
+"Compile++ thumb : cocos2dcpp_shared <= ActionSprite.cpp
+"Compile++ thumb : cocos2dcpp_shared <= GameLayer.cpp
+jni/../../Classes/GameLayer.cpp: In member function 'void GameLayer::updateRobots(float)':
+jni/../../Classes/GameLayer.cpp:235:50: error: 'UINT64_C' was not declared in this scope
+jni/../../Classes/GameLayer.cpp:263:50: error: 'UINT64_C' was not declared in this scope
+make: *** [obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameLayer.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_02_hori_pass ****
+
+ndk-build.cmd 
+"Compile++ thumb : cocos2dcpp_shared <= GameLayer.cpp
+jni/../../Classes/GameLayer.cpp: In member function 'void GameLayer::updateRobots(float)':
+jni/../../Classes/GameLayer.cpp:235:50: error: 'UINT64_C' was not declared in this scope
+jni/../../Classes/GameLayer.cpp:263:50: error: 'UINT64_C' was not declared in this scope
+make: *** [obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/GameLayer.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_08_HappyBird ****
+
+ndk-build.cmd all 
+"Compile++ thumb : cocos2dcpp_shared <= Bird.cpp
+"Compile++ thumb : cocos2dcpp_shared <= Global.cpp
+"Compile++ thumb : cocos2dcpp_shared <= MainLayer.cpp
+"Compile++ thumb : cocos2dcpp_shared <= MainScene.cpp
+"Compile++ thumb : cocos2dcpp_shared <= Obstacle.cpp
+"Compile++ thumb : cocos2dcpp_shared <= StartLayer.cpp
+SharedLibrary  : libcocos2dcpp.so
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project CoCo_08_HappyBird ****
+
+ndk-build.cmd all 
+Install        : libcocos2dcpp.so => libs/armeabi/libcocos2dcpp.so
+
+**** Build Finished ****

@@ -1,0 +1,28 @@
+package com.example.android01_getapicturefrominternet;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.app.Activity;
+
+public class MainActivity extends Activity {
+	private EditText pathText;
+	private ImageView imageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        pathText = (EditText)findViewById(R.id.path);
+        imageView = (ImageView)findViewById(R.id.imageView);
+    }
+    
+    public void showimage(view v){
+    	
+    }
+
+
+   
+    
+}

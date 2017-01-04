@@ -1,0 +1,59 @@
+package com.mingzz.server;
+
+import java.net.Socket;
+
+public class ChatService extends AbstractConnection implements Runnable{
+	// 服务执行线程
+	private Thread exec;
+	// 用指定的Socket创建一个新的ChatService对象
+	public ChatService(Socket s)
+	{
+		super(s);
+		exec = new Thread(this);
+		
+	}
+	// 启动执行线程
+	public void start()
+	{
+		exec.start();
+	}
+	@Override// 运行执行线程
+	public void run() {
+		// TODO Auto-generated method stub
+		// 打开联接
+		if(!open())
+		{
+			System.err.println("Could not open connection。");
+			return;
+		}
+		// 获取当前线程
+		Thread t = Thread.currentThread();
+		while(exec == t)
+		{
+			// 等待下一个消息
+			recv();
+			// 或qu消息头
+			String header = parseHeader();
+			
+			// 如果客户端终止传送则退出
+			if(header.equals(END_OF_TRANSMISSION))
+			{
+				close(false);
+				return;
+			}
+			// 如果消息头是“Reverse”则反转字符串部分 并返回给客户端
+			else if(header.equals("Reverse"))
+			{
+				send("Echo", new StringBuffer(parseMessage()).reverse().toString());
+			}else{// 否则响应不可识别
+				System.err.println("Unrecognized header: " + parseHeader());
+			}
+			try{
+				Thread.sleep(25);
+			}catch(InterruptedException e){}
+		}
+	}
+
+	
+
+}

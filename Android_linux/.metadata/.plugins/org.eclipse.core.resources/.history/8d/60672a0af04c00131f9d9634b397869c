@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <Button 
+        android:id="@+id/sun_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sun"/>
+    <Button 
+        android:id="@+id/cloudy_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sun"/>
+    <Button 
+        android:id="@+id/rain_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rain"/>
+    <Button 
+        android:id="@+id/defaultSound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="defaultSound"/>
+    <Button 
+        android:id="@+id/defaultVibrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="defaultVibrate"/>
+    <Button 
+        android:id="@+id/defaultAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="defaultAll"/>
+    <Button 
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clear"/>
+
+ 
+
+</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+

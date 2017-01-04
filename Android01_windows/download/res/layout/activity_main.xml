@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <Button 
+        android:id="@+id/downloadtextbutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="downloadtext"/>
+    <Button 
+        android:id="@+id/downloadmp3button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="downloadmp3"/>
+
+</LinearLayout>

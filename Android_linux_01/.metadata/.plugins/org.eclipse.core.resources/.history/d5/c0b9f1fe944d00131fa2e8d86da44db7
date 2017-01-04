@@ -1,0 +1,5 @@
+package com.example.android_02_client;
+
+public class ClientMessage {
+
+}

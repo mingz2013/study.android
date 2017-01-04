@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!--  
+    	android:id 为控件指定相应的ID
+    	android:text  指定控件当中显示的文字，须注意的是，应尽量使用string.xml
+    	android:grivity  指定控件的基本位置，比如说居中，居右等位置
+    	android:textSize  指定控件当中字体的大小
+    	android:background  指定该控件所使用的背景色，RGB命名法
+    	android:width  指定控件的宽度
+    	android:height  指定控件的宽度
+    	android:padding*  指定控件的内边距，也就是说控件当中的内容
+    	android:sigleLine  如果设置为真的话，则将控件的内容在同一行当中进行显示
+    -->
+    <TextView 
+        android:id="@+id/first"
+        android:text="diyihang"
+        android:gravity="center_vertical"
+        android:textSize="35pt"
+        android:background="#aa0000"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+        
+        
+    <TextView
+       android:id="@+id/second"
+        android:text="第一行"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/three"
+        android:text="第一行"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+   
+</LinearLayout>

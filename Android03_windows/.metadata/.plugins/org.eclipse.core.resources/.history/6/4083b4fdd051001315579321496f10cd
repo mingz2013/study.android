@@ -1,0 +1,14 @@
+package com.example.android03_xml_parser;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+public class SAXForHandler extends DefaultHandler{
+	private static final String TAG = "SAXForHandler";
+	private List<Person> persons;
+	private String perTag;	// 通过此变量，记录前一个标签的名称
+	Person person;// 记录当前Person
+	
+	
+	
+	
+}

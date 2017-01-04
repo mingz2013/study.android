@@ -1,0 +1,42 @@
+package com.example.android_02_client;
+
+import java.net.Socket;
+
+public class ChatClient extends AbstractConnection implements Runnable{
+	// 客户端执行线程
+	private Thread exec;
+	// 用指定的socket创建一个新的chatsocket
+	public ChatClient(Socket s)
+	{
+		super(s);
+		exec = new Thread(this);
+	}
+	public void start()
+	{
+		exec.start();
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		// 打开联接
+		if(!open())
+		{
+			System.out.println("Could not open connection.");
+			return;
+		}
+		while(true)
+		{
+			recv();
+			
+			// 打印服务的响应
+			System.out.println(parseUserMessage().toString());
+		}
+	}
+	
+	public void abstract doUserMessage(UserMessage userMessage){
+		
+	}
+	
+
+}

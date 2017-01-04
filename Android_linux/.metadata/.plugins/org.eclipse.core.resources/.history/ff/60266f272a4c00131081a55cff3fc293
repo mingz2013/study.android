@@ -1,0 +1,34 @@
+package com.example.android_020_testmenu;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+	public static final int RED_MENU_ID = Menu.FIRST;
+	public static final int GREEN_MENU_ID = Menu.FIRST + 1;
+	public static final int BLUE_MENU_ID = Menu.FIRST + 2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    @Override	// 建立菜单时进行设置，为每一个按钮设置ID
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+	@Override	// 菜单被选择时调用
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		return super.onOptionsItemSelected(item);
+	}
+    
+}

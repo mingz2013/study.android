@@ -1,0 +1,8 @@
+package com.example.android_027_notification;
+
+import android.app.Activity;
+
+public class ActivityToast extends Activity{
+	private static int TOAST_ID = R.layout.activity_toast;
+
+}

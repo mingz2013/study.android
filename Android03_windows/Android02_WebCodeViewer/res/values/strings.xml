@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android02_WebCodeViewer</string>
+    <string name="action_settings">Settings</string>
+    <string name="path">The path of the web</string>
+    <string name="button">GetWebCode</string>
+    <string name="error">failed to get web code</string>
+</resources>

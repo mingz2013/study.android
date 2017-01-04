@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;org.cocos2dx.lib&apos; to &apos;CoCo_02_hori_pass/src&apos;&#x0D;&#x0A;- Original project: &apos;CoCo_08_HappyBird&apos;&#x0D;&#x0A;- Destination element: &apos;CoCo_02_hori_pass/src&apos;&#x0D;&#x0A;- Original element: &apos;CoCo_08_HappyBird/src/org.cocos2dx.lib&apos;" description="Copy package" destination="=CoCo_02_hori_pass/src" element1="/src&lt;org.cocos2dx.lib" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1393328814540" version="1.0"/>
+</session>
